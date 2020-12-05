@@ -13,29 +13,20 @@
 </head>
 
 <body>
-    <div class="jumbotron">
-        <h1 class="text-center">Welcome to the Quiz</h1>
-        <h3 class="text-center">Answer 5 questions and check your result.
-            <br>Note: for each question, you have 15 seconds.
-        </h3>
-    </div>
 
-    <div class="container-fluid" id="container start">
+    <div class="container-fluid" id="container questions">
         <div class="row m-2">
             <div class="col text-center">
-                <div class="display-4">The Coding Quiz</div>
-            </div>
-        </div>
-        <div class="row m-2">
-            <div class="col text-center">
-                <a href="./quiz.html" class="btn btn-primary btn-lg">Start Quiz</a>
-                <!-- <button class="btn btn-primary btn-lg" id="start-btn">Start Quiz</button> -->
-            </div>
-        </div>
-        <div class="row m-2">
-            <div class="col text-center">
-                <a href="./hightest_score.html" class="btn btn-primary btn-lg">Highest History Score</a>
-                <!-- <button class="btn btn-primary btn-lg" id="start-btn">Highest History Score</button> -->
+                <!-- Button used to start the quiz game. -->
+                <div id="quizQ">
+                    <div id="questions"></div>
+                    <div id="choices">
+                        <div id="choice" class="A"></div>
+                        <div id="choice" class="B"></div>
+                        <div id="choice" class="C"></div>
+                    </div>
+                    <div id="countDown"></div>
+                </div>
             </div>
         </div>
     </div>
