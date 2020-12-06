@@ -13,7 +13,7 @@ var countDown = document.getElementById("countDown");
 var progress = document.getElementById("progress");
 var score = document.getElementById("score");
 
-
+console.log(questions)
 
 
 
@@ -87,7 +87,7 @@ var score = 0;
 
 
 function runQuiz() {
-    if questionIndex <= questions.length - 1 {
+    if (questionIndex <= questions.length - 1) {
         questions.innerHTML = questions[questionIndex].realQ;
         choiceA.innerHTML = questions[questionIndex].choiceA;
         choiceB.innerHTML = questions[questionIndex].choiceB;
@@ -99,3 +99,8 @@ function runQuiz() {
     }
 };
 
+next.addEventListener("click", function (event) {
+    event.preventDefault()
+    questionIndex++
+    runQuiz()
+});
