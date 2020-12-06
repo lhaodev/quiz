@@ -18,9 +18,15 @@
         <h3 class="text-center">Answer 5 questions and check your result.
             <br>Note: for each question, you have 15 seconds.
         </h3>
+        <h5>
+            <div class="score">
+                SCORE:
+                <span id="score">0</span>
+            </div>
+        </h5>
     </div>
 
-    <div class="container-fluid" id="container start">
+    <div class="container-fluid" id="container">
         <div class="row m-2">
             <div class="col text-center">
                 <div class="display-4">The Coding Quiz</div>
@@ -28,17 +34,43 @@
         </div>
         <div class="row m-2">
             <div class="col text-center">
-                <a href="./quiz.html" class="btn btn-primary btn-lg">Start Quiz</a>
-                <!-- <button class="btn btn-primary btn-lg" id="start-btn">Start Quiz</button> -->
+                <button class="start-btn myBtn" id="start-btn">Start Game</button>
             </div>
         </div>
+
+
+
+
+
+    </div>
+
+    <div class="container-fluid" id="container">
         <div class="row m-2">
             <div class="col text-center">
-                <a href="./hightest_score.html" class="btn btn-primary btn-lg">Highest History Score</a>
-                <!-- <button class="btn btn-primary btn-lg" id="start-btn">Highest History Score</button> -->
+                <div id="quiz-container" class="hide">
+                    <button id=" questions">Question</button>
+
+                    <div id="answerChoice" class="btn-grid">
+                        <button id="choice" class="A">Answer A</button>
+                        <button id="choice" class="B">Answer B</button>
+                        <button id="choice" class="C">Answer C</button>
+                        <button id="choice" class="D">Answer D</button>
+                    </div>
+                </div>
             </div>
+            <div id="countDown"></div>
+            <div id="progress"></div>
         </div>
     </div>
+    </div>
+
+
+    <div class="row m-2">
+        <div class="col text-center">
+            <button class="next-btn hide myBtn" id="next-btn">Next</button>
+        </div>
+    </div>
+
 
 
 
