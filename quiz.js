@@ -2,7 +2,7 @@ var start = document.getElementById("start-btn");
 console.log(start);
 var next = document.getElementById("next-btn");
 var quizMain = document.getElementById("quiz-container");
-var questions = document.getElementById("questions");
+var questions = document.getElementById("text");
 var choices = document.getElementById("answerChoice");
 var choiceA = document.querySelector(".A");
 var choiceB = document.querySelector(".B");
