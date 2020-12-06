@@ -1,7 +1,5 @@
 var start = document.getElementById("start-btn");
 console.log(start);
-var historyAgain = document.getElementById("h-btn");
-console.log(historyAgain)
 var next = document.getElementById("next-btn");
 var quizMain = document.getElementById("quiz-container");
 var questions = document.getElementById("questions");
@@ -84,8 +82,8 @@ function startQuiz() {
     runQuiz()
 };
 
-questionIndex = 0;
-score = 0;
+var questionIndex = 0;
+var score = 0;
 
 
 function runQuiz() {
@@ -97,7 +95,7 @@ function runQuiz() {
         choiceD.innerHTML = questions[questionIndex].choiceD;
     }
     else {
-        question.innerHTML = "Quiz Completed";
+        questions.innerHTML = "Quiz Completed";
     }
 };
 
