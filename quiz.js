@@ -24,7 +24,7 @@ var initials = document.getElementById("initials");
 console.log(questions)
 
 
-
+//question set
 var questions = [
     {
         realQ: "How does Harry manage to breathe underwater during the second task of the Triwizard Tournament?",
@@ -129,8 +129,6 @@ next.addEventListener("click", function (event) {
 
 
 //set timer - total is 50 seconds
-
-
 function setTime() {
     var questionTime = 50;
     var timeInterval = setInterval(function () {
@@ -173,7 +171,7 @@ function rightOrWrong(answer) {
     }
 };
 
-
+//submit score function, save score to localstoreage
 submitScore.addEventListener("click", function (event) {
     event.preventDefault();
 
@@ -189,12 +187,13 @@ submitScore.addEventListener("click", function (event) {
     else {
         alert("Saved successfully");
     }
-
-
     localStorage.setItem("historyRecord", JSON.stringify(historyRecord));
     highScoreBtn.classList.remove("hide");
 });
 
+
+
+//localstore get past stored scores
 function showHighScore(answer) {
     var recordAll = JSON.parse(localStorage.getItem("historyRecord"));
     console.log(recordAll);
@@ -206,5 +205,4 @@ function showHighScore(answer) {
     endSection.classList.add("hide");
     start.classList.remove("hide");
     start.innerHTML = "Restart";
-
 };

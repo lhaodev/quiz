@@ -14,10 +14,9 @@
 
 <body>
     <div class="jumbotron">
-        <h1 class="text-center">Welcome to the Quiz</h1>
-        <h3 class="text-center">Answer 5 questions and check your result.
-            <br>Note: for each question, you have 10 seconds.
-        </h3>
+        <h3 class="text-center">Welcome to the Quiz</h3>
+        <h6 class="text-center">Answer 5 questions. You will have 50s in total.
+        </h6>
         <h5>
             <div class="score">
                 Score:
@@ -42,7 +41,7 @@
                 <button class="history-btn myBtn" id="highScore-btn" onclick="showHighScore()">High Scores</button>
             </div>
         </div>
-        <div id="highscore-container" class="hide">
+        <div id="highscore-container" class="hide col text-center">
             <div id="highscoreStorage">
                 <div id="highscore-header">
                     <h3>User Initials</h3>
@@ -72,15 +71,15 @@
         </div>
     </div>
 
-    <div id="checkAnswer" class="checkAnswer"></div>
+
 
     <div class="row m-2">
         <div class="col text-center">
             <button class="next-btn hide myBtn" id="next-btn">Next</button>
         </div>
     </div>
-
-    <div id="end" class="hide">
+    <div id="checkAnswer" class="checkAnswer col text-center"></div>
+    <div id="end" class="hide col text-center">
         <label for="initials">Initials</label>
         <input type="text" name="initials" id="initials" placeholder="Your Initials" />
         <button id="submitScore">Submit Score</button>
