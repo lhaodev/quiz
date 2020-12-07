@@ -97,31 +97,35 @@ function runQuiz() {
     }
 };
 
-next.addEventListener("click", function (event) {
-    event.preventDefault();
+
+function nextQuestion() {
     questionIndex++;
     runQuiz();
+}
+
+
+next.addEventListener("click", function (event) {
+    event.preventDefault();
+    nextQuestion();
     setTime();
 });
 
-var questionTime = 15;
+
 
 function setTime() {
-    var timerInterval = setInterval(function () {
+    var questionTime = 10;
+    var timeInterval = setInterval(function () {
+        timer.textContent = questionTime;
         questionTime--;
-        timer.textContent = questionTime + " seconds left till next question.";
 
         if (questionTime === 0) {
-            clearInterval(timerInterval);
-            sendMessage();
+            timer.textContent = "Time is up";
+            clearInterval(timeInterval);
         }
 
     }, 1000);
-};
+}
 
-function sendMessage() {
-    timer.textContent = "Time is up";
-};
 
 
 
