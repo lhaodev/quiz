@@ -39,7 +39,7 @@
         <div class="row m-2">
             <div class="col text-center">
                 <button class="start-btn myBtn" id="start-btn">Start Game</button>
-                <button class="history-btn myBtn" id="highScore-btn" onclick="showHighscore()">High Scores</button>
+                <button class="history-btn myBtn" id="highScore-btn" onclick="showHighScore()">High Scores</button>
             </div>
         </div>
         <div id="highscore-container" class="hide">
@@ -48,10 +48,9 @@
                     <h3>User Initials</h3>
                     <h3>Score</h3>
                 </div>
-                <div id="highscore-initials"></div>
-                <div id="highscore-score"></div>
+                <div id="highscore-initials">xx</div>
+                <div id="highscore-score">xx</div>
             </div>
-
         </div>
 
         <div class="container-fluid" id="container">
@@ -68,7 +67,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="progress"></div>
+
             </div>
         </div>
     </div>
@@ -81,6 +80,11 @@
         </div>
     </div>
 
+    <div id="end" class="hide">
+        <label for="initials">Initials</label>
+        <input type="text" name="initials" id="initials" placeholder="Your Initials" />
+        <button id="submitScore">Submit Score</button>
+    </div>
 
 
 

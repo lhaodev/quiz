@@ -10,11 +10,16 @@ var choiceC = document.querySelector(".C");
 var choiceD = document.querySelector(".D");
 var correct = document.getElementById("correct");
 var timer = document.getElementById("timer");
-var progress = document.getElementById("progress");
 var score = document.getElementById("score");
 var checkAnswer = document.getElementById("checkAnswer");
-var highScore = document.getElementById("highScore-btn");
+var highScoreBtn = document.getElementById("highScore-btn");
 var highscoreContainer = document.getElementById("highscore-container");
+var highScoreInitials = document.getElementById("highscore-initials");
+var highestScore = document.getElementById("highscore-score");
+var endSection = document.getElementById("end");
+var submitScore = document.getElementById("submitScore");
+var initials = document.getElementById("initials");
+
 
 console.log(questions)
 
@@ -75,22 +80,24 @@ var questions = [
 
 console.log(questions.length);
 
-
+//start button to start the quiz
 start.addEventListener("click", startQuiz);
 function startQuiz() {
+    questionIndex = 0;
     console.log("started");
     start.classList.add("hide");
     quizMain.classList.remove("hide");
-    highScore.classList.add("hide");
+    highScoreBtn.classList.add("hide");
     next.classList.remove("hide");
     highscoreContainer.classList.add("hide");
     runQuiz();
     setTime();
 };
 
-var questionIndex = 0;
+
 
 //trying to create a restart button when the list of questions is run out
+var questionIndex = 0;
 
 function runQuiz() {
     if (questionIndex <= questions.length - 1) {
@@ -101,26 +108,31 @@ function runQuiz() {
         choiceD.innerHTML = questions[questionIndex].choiceD;
 
     } else {
-        showScore();
+        score.innerHTML = "You got " + scoreNum + " questions correct";
+        next.classList.add("hide");
+        quizMain.classList.add("hide");
+        //highscoreContainer.classList.remove("hide");
     }
 
 };
 
-
+//next button to run next question
 function nextQuestion() {
     questionIndex++;
     runQuiz();
 }
-
 
 next.addEventListener("click", function (event) {
     event.preventDefault();
     nextQuestion();
 });
 
-var questionTime = 50;
+
+//set timer - total is 50 seconds
+
 
 function setTime() {
+    var questionTime = 50;
     var timeInterval = setInterval(function () {
         timer.textContent = questionTime;
         questionTime--;
@@ -128,35 +140,71 @@ function setTime() {
         if (questionTime === 0) {
             timer.textContent = "Time is up";
             clearInterval(timeInterval);
+            score.innerHTML = "You got " + scoreNum + " questions correct";
+            next.classList.add("hide");
+            quizMain.classList.add("hide");
+            endSection.classList.remove("hide");
+
         }
 
     }, 1000);
 };
 
-//trying to calculate score
+
+//calculate score
+
+var scoreNum = 0;
 
 function rightOrWrong(answer) {
-    if (questions[questionIndex].correct == answer && questionIndex !== question.length - 1) {
-        score++;
-        score.innerHTML = score;
+    if (questions[questionIndex].correct == answer && questionIndex !== questions.length - 1) {
+        scoreNum++;
+        score.innerHTML = scoreNum;
         checkAnswer.innerHTML = "Correct";
-    } else if (questions[questionIndex].correct !== answer && questionIndex !== question.length - 1) {
+    } else if (questions[questionIndex].correct !== answer && questionIndex !== questions.length - 1) {
         checkAnswer.innerHTML = "Wrong";
     }
     else {
-        score.innerHTML = "You got " + score + " questions correct";
+        score.innerHTML = "You got " + scoreNum + " questions correct";
         next.classList.add("hide");
         quizMain.classList.add("hide");
+        endSection.classList.remove("hide");
+        checkAnswer.classList.add("hide");
+
     }
 };
 
 
+submitScore.addEventListener("click", function (event) {
+    event.preventDefault();
+
+    var userInitial = initials.value.trim();
+    var historyRecord = {
+        name: userInitial,
+        score: scoreNum
+    };
+
+    if (userInitial === "") {
+        alert("error", "Initials cannot be blank");
+    }
+    else {
+        alert("Saved successfully");
+    }
 
 
+    localStorage.setItem("historyRecord", JSON.stringify(historyRecord));
+    highScoreBtn.classList.remove("hide");
+});
 
+function showHighScore(answer) {
+    var recordAll = JSON.parse(localStorage.getItem("historyRecord"));
+    console.log(recordAll);
+    start.classList.add("hide");
+    highScoreBtn.classList.add("hide");
+    highscoreContainer.classList.remove("hide");
+    highScoreInitials.innerHTML = recordAll.name;
+    highestScore.innerHTML = recordAll.score;
+    endSection.classList.add("hide");
+    start.classList.remove("hide");
+    start.innerHTML = "Restart";
 
-
-
-
-
-
+};
