@@ -19,7 +19,7 @@ var highestScore = document.getElementById("highscore-score");
 var endSection = document.getElementById("end");
 var submitScore = document.getElementById("submitScore");
 var initials = document.getElementById("initials");
-
+var scoreNum = 0;
 
 console.log(questions)
 
@@ -92,6 +92,9 @@ function startQuiz() {
     highscoreContainer.classList.add("hide");
     runQuiz();
     setTime();
+    scoreNum = 0;
+    score.innerHTML = scoreNum;
+
 };
 
 
@@ -142,7 +145,6 @@ function setTime() {
             next.classList.add("hide");
             quizMain.classList.add("hide");
             endSection.classList.remove("hide");
-
         }
 
     }, 1000);
@@ -151,7 +153,7 @@ function setTime() {
 
 //calculate score
 
-var scoreNum = 0;
+
 
 function rightOrWrong(answer) {
     if (questions[questionIndex].correct == answer && questionIndex !== questions.length - 1) {
