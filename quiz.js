@@ -2,14 +2,14 @@ var start = document.getElementById("start-btn");
 console.log(start);
 var next = document.getElementById("next-btn");
 var quizMain = document.getElementById("quiz-container");
-var questions = document.getElementById("text");
+var questionsText = document.getElementById("text");
 var choices = document.getElementById("answerChoice");
 var choiceA = document.querySelector(".A");
 var choiceB = document.querySelector(".B");
 var choiceC = document.querySelector(".C");
 var choiceD = document.querySelector(".D");
 var correct = document.getElementById("correct");
-var countDown = document.getElementById("countDown");
+var timer = document.getElementById("timer");
 var progress = document.getElementById("progress");
 var score = document.getElementById("score");
 
@@ -75,32 +75,65 @@ console.log(questions.length);
 
 start.addEventListener("click", startQuiz);
 function startQuiz() {
-    console.log("started")
-    start.classList.add("hide")
-    quizMain.classList.remove("hide")
-    next.classList.remove("hide")
-    runQuiz()
+    console.log("started");
+    start.classList.add("hide");
+    quizMain.classList.remove("hide");
+    next.classList.remove("hide");
+    runQuiz();
+    setTime();
 };
 
 var questionIndex = 0;
-var score = 0;
+score = 0;
 
 
 function runQuiz() {
-    if (questionIndex <= questions.length - 1) {
-        questions.innerHTML = questions[questionIndex].realQ;
+    for (var i = 0; i < questions.length; i++) {
+        questionsText.innerHTML = questions[questionIndex].realQ;
         choiceA.innerHTML = questions[questionIndex].choiceA;
         choiceB.innerHTML = questions[questionIndex].choiceB;
         choiceC.innerHTML = questions[questionIndex].choiceC;
         choiceD.innerHTML = questions[questionIndex].choiceD;
     }
-    else {
-        questions.innerHTML = "Quiz Completed";
-    }
 };
 
 next.addEventListener("click", function (event) {
-    event.preventDefault()
-    questionIndex++
-    runQuiz()
+    event.preventDefault();
+    questionIndex++;
+    runQuiz();
+    setTime();
 });
+
+var questionTime = 15;
+
+function setTime() {
+    var timerInterval = setInterval(function () {
+        questionTime--;
+        timer.textContent = questionTime + " seconds left till next question.";
+
+        if (questionTime === 0) {
+            clearInterval(timerInterval);
+            sendMessage();
+        }
+
+    }, 1000);
+};
+
+function sendMessage() {
+    timer.textContent = "Time is up";
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
