@@ -12,6 +12,9 @@ var correct = document.getElementById("correct");
 var timer = document.getElementById("timer");
 var progress = document.getElementById("progress");
 var score = document.getElementById("score");
+var checkAnswer = document.getElementById("checkAnswer");
+var highScore = document.getElementById("highScore-btn");
+var highscoreContainer = document.getElementById("highscore-container");
 
 console.log(questions)
 
@@ -78,23 +81,29 @@ function startQuiz() {
     console.log("started");
     start.classList.add("hide");
     quizMain.classList.remove("hide");
+    highScore.classList.add("hide");
     next.classList.remove("hide");
+    highscoreContainer.classList.add("hide");
     runQuiz();
     setTime();
 };
 
 var questionIndex = 0;
-score = 0;
 
+//trying to create a restart button when the list of questions is run out
 
 function runQuiz() {
-    for (var i = 0; i < questions.length; i++) {
+    if (questionIndex <= questions.length - 1) {
         questionsText.innerHTML = questions[questionIndex].realQ;
         choiceA.innerHTML = questions[questionIndex].choiceA;
         choiceB.innerHTML = questions[questionIndex].choiceB;
         choiceC.innerHTML = questions[questionIndex].choiceC;
         choiceD.innerHTML = questions[questionIndex].choiceD;
+
+    } else {
+        showScore();
     }
+
 };
 
 
@@ -107,13 +116,11 @@ function nextQuestion() {
 next.addEventListener("click", function (event) {
     event.preventDefault();
     nextQuestion();
-    setTime();
 });
 
-
+var questionTime = 50;
 
 function setTime() {
-    var questionTime = 10;
     var timeInterval = setInterval(function () {
         timer.textContent = questionTime;
         questionTime--;
@@ -124,12 +131,24 @@ function setTime() {
         }
 
     }, 1000);
-}
+};
 
+//trying to calculate score
 
-
-
-
+function rightOrWrong(answer) {
+    if (questions[questionIndex].correct == answer && questionIndex !== question.length - 1) {
+        score++;
+        score.innerHTML = score;
+        checkAnswer.innerHTML = "Correct";
+    } else if (questions[questionIndex].correct !== answer && questionIndex !== question.length - 1) {
+        checkAnswer.innerHTML = "Wrong";
+    }
+    else {
+        score.innerHTML = "You got " + score + " questions correct";
+        next.classList.add("hide");
+        quizMain.classList.add("hide");
+    }
+};
 
 
 

@@ -20,12 +20,12 @@
         </h3>
         <h5>
             <div class="score">
-                SCORE:
-                <span id="score">0</span>
+                Score:
+                <span id="score"></span>
             </div>
             <div class="timer">
                 Timer:
-                <span id="timer">10</span>
+                <span id="timer"></span>
             </div>
         </h5>
     </div>
@@ -39,34 +39,41 @@
         <div class="row m-2">
             <div class="col text-center">
                 <button class="start-btn myBtn" id="start-btn">Start Game</button>
+                <button class="history-btn myBtn" id="highScore-btn" onclick="showHighscore()">High Scores</button>
             </div>
         </div>
+        <div id="highscore-container" class="hide">
+            <div id="highscoreStorage">
+                <div id="highscore-header">
+                    <h3>User Initials</h3>
+                    <h3>Score</h3>
+                </div>
+                <div id="highscore-initials"></div>
+                <div id="highscore-score"></div>
+            </div>
 
+        </div>
 
+        <div class="container-fluid" id="container">
+            <div class="row m-2">
+                <div class="col text-center">
+                    <div id="quiz-container" class="hide">
+                        <button id="text">Question</button>
 
-
-
-    </div>
-
-    <div class="container-fluid" id="container">
-        <div class="row m-2">
-            <div class="col text-center">
-                <div id="quiz-container" class="hide">
-                    <button id="text">Question</button>
-
-                    <div id="answerChoice" class="btn-grid">
-                        <button id="choice" class="A">Answer A</button>
-                        <button id="choice" class="B">Answer B</button>
-                        <button id="choice" class="C">Answer C</button>
-                        <button id="choice" class="D">Answer D</button>
+                        <div id="answerChoice" class="btn-grid">
+                            <button id="choice" class="A" onclick="rightOrWrong('A')">Answer A</button>
+                            <button id="choice" class="B" onclick="rightOrWrong('B')">Answer B</button>
+                            <button id="choice" class="C" onclick="rightOrWrong('C')">Answer C</button>
+                            <button id="choice" class="D" onclick="rightOrWrong('D')">Answer D</button>
+                        </div>
                     </div>
                 </div>
+                <div id="progress"></div>
             </div>
-            <div id="progress"></div>
         </div>
     </div>
-    </div>
 
+    <div id="checkAnswer" class="checkAnswer"></div>
 
     <div class="row m-2">
         <div class="col text-center">
