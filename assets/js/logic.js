@@ -14,20 +14,13 @@ var score = document.getElementById("score");
 var checkAnswer = document.getElementById("checkAnswer");
 var highScoreBtn = document.getElementById("highScore-btn");
 var highscoreContainer = document.getElementById("highscore-container");
-//var highScoreInitials = document.getElementById("highscore-initials");
-//var highestScore = document.getElementById("highscore-score");
 var endSection = document.getElementById("end");
 var submitScore = document.getElementById("submitScore");
 var initials = document.getElementById("initials");
 var timerId;
 var questionTime;
-
-
 var scoreNum = 0;
 
-console.log(questions)
-
-console.log(questions.length);
 
 //start button to start the quiz
 start.addEventListener("click", startQuiz);
@@ -52,8 +45,6 @@ function startQuiz() {
     endSection.classList.add("hide");
 };
 
-
-
 //trying to create a restart button when the list of questions is run out
 var questionIndex = 0;
 
@@ -76,7 +67,7 @@ function runQuiz() {
 };
 
 
-
+//next button - go to next question till questions run out
 next.addEventListener("click", function (event) {
     event.preventDefault();
     questionIndex++;
@@ -102,7 +93,7 @@ function tick() {
     }
 };
 
-
+//design end page (will show up when time run out or when questions run out)
 function endPage() {
     next.classList.add("hide");
     quizMain.classList.add("hide");
