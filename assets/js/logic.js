@@ -19,6 +19,8 @@ var highscoreContainer = document.getElementById("highscore-container");
 var endSection = document.getElementById("end");
 var submitScore = document.getElementById("submitScore");
 var initials = document.getElementById("initials");
+var timerId;
+var questionTime;
 
 
 var scoreNum = 0;
@@ -38,7 +40,9 @@ function startQuiz() {
     next.classList.remove("hide");
     highscoreContainer.classList.add("hide");
     runQuiz();
-    setTime();
+    timeInterval = setInterval(tick, 1000);
+    questionTime = 50;
+    timer.textContent = questionTime;
     scoreNum = 0;
     score.innerHTML = scoreNum;
     document.querySelector(".A").disabled = false;
@@ -89,21 +93,15 @@ next.addEventListener("click", function (event) {
 });
 
 
-//set timer - total is 50 seconds
-function setTime() {
-    var questionTime = 50;
-    var timeInterval = setInterval(function () {
-        timer.textContent = questionTime;
-        questionTime--;
-
-        if (questionTime <= 0) {
-            timer.textContent = "Time is up";
-            endPage();
-            clearInterval(timeInterval);
-        }
-
-    }, 1000);
+//set timer - count-down
+function tick() {
+    questionTime--;
+    timer.textContent = questionTime;
+    if (questionTime <= 0) {
+        endPage();
+    }
 };
+
 
 function endPage() {
     next.classList.add("hide");
@@ -112,11 +110,11 @@ function endPage() {
     start.classList.remove("hide");
     start.innerHTML = "Restart";
     score.innerHTML = "You got " + scoreNum + " questions correct";
+    clearInterval(timeInterval);
 }
 
 
 //calculate score
-
 function rightOrWrong(answer) {
     document.querySelector(".A").disabled = true;
     document.querySelector(".B").disabled = true;
