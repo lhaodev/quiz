@@ -129,7 +129,7 @@ submitScore.addEventListener("click", function (event) {
     event.preventDefault();
 
     var userInitial = initials.value.trim();
-    var historyRecord = {
+    var newRecord = {
         name: userInitial,
         score: scoreNum
     };
@@ -139,11 +139,14 @@ submitScore.addEventListener("click", function (event) {
     }
     else {
         alert("Saved successfully");
+        var historyRecord =
+            JSON.parse(localStorage.getItem("historyRecord")) || [];
+
+        historyRecord.push(newRecord);
+        localStorage.setItem("historyRecord", JSON.stringify(historyRecord));
+        highScoreBtn.classList.remove("hide");
+
     }
-    localStorage.setItem("historyRecord", JSON.stringify(historyRecord));
-    highScoreBtn.classList.remove("hide");
-});
-
-
-
+}
+);
 
