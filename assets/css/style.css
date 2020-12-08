@@ -1,0 +1,31 @@
+.hide {
+    display: none;
+  }
+
+  
+ body{
+  
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+};  
+
+
+.mybtn {
+  background-color:lightblue;
+
+}
+
+.timer {
+  font-size: 18px;
+  color: rgb(9, 39, 65);
+}
+
+.score {
+  font-size: 18px;
+  color:rgb(9, 39, 65);
+}
+
+.jumbotron{padding:2rem 1rem;margin-bottom:3rem;background-color:lightyellow;text-align: center;
+  border-radius:.3rem}@media (min-width:576px){.jumbotron{padding:2rem 2rem}}.jumbotron-fluid{padding-right:0;padding-left:0;border: radius 2;}.alert{position:relative;padding:.75rem 1.25rem;margin-bottom:1rem;border:1px solid transparent;border-radius:.25rem};
+
+
+
