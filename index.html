@@ -14,8 +14,8 @@
 
 <body>
     <div class="jumbotron">
-        <h3 class="text-center">Welcome to the Quiz</h3>
-        <h6 class="text-center">Answer 5 questions. You will have 50s in total.
+        <h2 class="text-center" style="font-family: fantasy;">Welcome to the Quiz</h2>
+        <h6 class=" text-center" style="color:rebeccapurple;">(Answer 5 questions. You will have 30s in total.)
         </h6>
         <h5>
             <div class="score">
@@ -29,16 +29,19 @@
         </h5>
     </div>
 
+
+
     <div class="container-fluid" id="container">
         <div class="row m-2">
             <div class="col text-center">
-                <div class="display-4">The Coding Quiz</div>
+                <div class="display-4" style="font-family: fantasy;">The Harry Potter Theme Quiz</div>
             </div>
         </div>
         <div class="row m-2">
             <div class="col text-center">
-                <button class="start-btn myBtn" id="start-btn">Start Game</button>
-                <button class="highScore-btn myBtn" id="highScore-btn" onclick="showHighScore()">High
+                <button class="start-btn btn-outline-dark btn" id="start-btn">Start
+                    Game</button>
+                <button class="highScore-btn btn btn-outline-dark" id="highScore-btn" onclick="showHighScore()">High
                     Scores</button>
             </div>
         </div>
@@ -46,33 +49,33 @@
         <!-- my highsocre storage page-->
         <div id="highscore-container" class="hide col text-center">
             <div id="highscoreStorage">
-                <div class="col-md-12" id="posts">
-                    <h2>Highscores</h2>
+                <div class="col-md-2 col-lg-2 mx-auto" id="posts">
+                    <h5 style="font-weight: bold;">Highscores</h5>
                     <ol id="highscores"></ol>
-
-                    <!-- // <div id="highscore-header">
-                        //<h3>User Initials</h3>
-                        //<div id="highscore-initials">xx</div>
-                        //<h3>Score</h3>
-                        //<div id="highscore-score">xx</div> -->
-                    <button id="clear-btn">Clear Highscores</button>
+                    <button id="clear-btn" class="clear-btn btn-outline-dark btn">Clear Highscores</button>
                 </div>
             </div>
         </div>
 
 
-
         <div class="container-fluid" id="container">
             <div class="row m-2">
                 <div class="col text-center">
-                    <div id="quiz-container" class="hide">
-                        <button id="text">Question</button>
+                    <div id="quiz-container" class="hide quiz-container">
+                        <h4 id="text" style="margin: auto; padding: 20px;">Question</h4>
 
-                        <div id="answerChoice" class="btn-grid">
-                            <button id="choice" class="A" onclick="rightOrWrong('A')">Answer A</button>
-                            <button id="choice" class="B" onclick="rightOrWrong('B')">Answer B</button>
-                            <button id="choice" class="C" onclick="rightOrWrong('C')">Answer C</button>
-                            <button id="choice" class="D" onclick="rightOrWrong('D')">Answer D</button>
+                        <div id="answerChoice" class="d-grid gap-2 mx-auto">
+                            <button id="choice" class="A btn btn-outline-success" type="button" onclick="
+                                rightOrWrong('A')">Answer A</button>
+                            <button id="choice" class="B btn btn-outline-success" type="button"
+                                onclick="rightOrWrong('B')">Answer
+                                B</button>
+                            <button id="choice" class="C btn btn-outline-success" type="button"
+                                onclick="rightOrWrong('C')">Answer
+                                C</button>
+                            <button id="choice" class="D btn btn-outline-success" type="button"
+                                onclick="rightOrWrong('D')">Answer
+                                D</button>
                         </div>
                     </div>
                 </div>
@@ -85,19 +88,17 @@
 
     <div class="row m-2">
         <div class="col text-center">
-            <button class="next-btn hide myBtn" id="next-btn">Next</button>
+            <button class="next-btn hide btn btn-outline-dark" id="next-btn" type="button">Next</button>
         </div>
     </div>
-    <div id="checkAnswer" class="checkAnswer col text-center"></div>
+    <div id="checkAnswer" class="alert alert-light checkAnswer col text-center" role="alert"></div>
 
 
-    <div id="end" class="hide col text-center">
+    <div id="end" class=" card hide col text-center mx-auto" style="width: 10rem;">
         <label for="initials">Initials</label>
         <input type="text" name="initials" id="initials" placeholder="Your Initials" />
-        <button id="submitScore">Submit Score</button>
+        <button class="submit-btn btn btn-outline-dark" id="submitScore">Submit Score</button>
     </div>
-
-
 
 
     <!-- Links to js files -->

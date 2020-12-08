@@ -34,7 +34,7 @@ function startQuiz() {
     highscoreContainer.classList.add("hide");
     runQuiz();
     timeInterval = setInterval(tick, 1000);
-    questionTime = 50;
+    questionTime = 30;
     timer.textContent = questionTime;
     scoreNum = 0;
     score.innerHTML = scoreNum;
@@ -50,6 +50,7 @@ var questionIndex = 0;
 
 function runQuiz() {
     if (questionIndex <= questions.length - 1) {
+        highscoreContainer.classList.add("hide");
         questionsText.innerHTML = questions[questionIndex].realQ;
         choiceA.innerHTML = questions[questionIndex].choiceA;
         choiceB.innerHTML = questions[questionIndex].choiceB;

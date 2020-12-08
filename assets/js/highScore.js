@@ -16,13 +16,14 @@ function showHighScore() {
 
     highscoreContainer.classList.remove("hide");
     start.classList.remove("hide");
-    start.innerHTML = "Restart";
+    //start.innerHTML = "Restart";
     endSection.classList.add("hide");
 };
 
 function clearHighScores() {
     window.localStorage.removeItem("historyRecord");
     window.location.reload();
+    //highscoreContainer.classList.add("hide");
 };
 
 document.getElementById("clear-btn").onclick = clearHighScores;
