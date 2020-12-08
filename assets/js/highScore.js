@@ -4,6 +4,7 @@ function showHighScore() {
     // get scores from local storage or sets to empty array
     var recordAll = JSON.parse(window.localStorage.getItem("historyRecord")) || [];
 
+    console.log(recordAll);
     // sort highscores in decending order
     recordAll.sort(function (x, y) {
         return y.score - x.score
@@ -11,10 +12,12 @@ function showHighScore() {
 
     recordAll.forEach(function (score) {
         var scoreList = document.createElement("li");
-        scoreList.textContent = score.name + " - " + score.score
+        scoreList.innerHTML = score.name + " - " + score.score
 
         var displayHighScores = document.getElementById("highscores");
         displayHighScores.appendChild(scoreList);
+
+        console.log(recordAll);
     });
 
 
@@ -36,5 +39,6 @@ function clearHighScores() {
 };
 
 document.getElementById("clear-btn").onclick = clearHighScores;
+
 
 showHighScore(); 

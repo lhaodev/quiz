@@ -68,6 +68,7 @@ function runQuiz() {
         next.classList.add("hide");
         quizMain.classList.add("hide");
         highscoreContainer.classList.remove("hide");
+
     }
 
 };
@@ -99,7 +100,7 @@ function setTime() {
             next.classList.add("hide");
             quizMain.classList.add("hide");
             endSection.classList.remove("hide");
-            quizEnd();
+
         }
 
     }, 1000);
