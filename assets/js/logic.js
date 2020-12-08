@@ -41,7 +41,11 @@ function startQuiz() {
     setTime();
     scoreNum = 0;
     score.innerHTML = scoreNum;
-
+    document.querySelector(".A").disabled = false;
+    document.querySelector(".B").disabled = false;
+    document.querySelector(".C").disabled = false
+    document.querySelector(".D").disabled = false;
+    endSection.classList.add("hide");
 };
 
 
@@ -77,39 +81,38 @@ next.addEventListener("click", function (event) {
     document.querySelector(".C").disabled = false
     document.querySelector(".D").disabled = false;
     if (questionIndex === questions.length) {
-        clearInterval(timeInterval);
-        score.innerHTML = "You got " + scoreNum + " questions correct";
-        next.classList.add("hide");
-        quizMain.classList.add("hide");
-        endSection.classList.remove("hide");
-
+        endPage();
     } else {
         runQuiz();
 
     }
 });
 
-var questionTime = 50;
+
 //set timer - total is 50 seconds
 function setTime() {
+    var questionTime = 50;
     var timeInterval = setInterval(function () {
         timer.textContent = questionTime;
         questionTime--;
 
         if (questionTime <= 0) {
             timer.textContent = "Time is up";
+            endPage();
             clearInterval(timeInterval);
-            score.innerHTML = "You got " + scoreNum + " questions correct";
-            next.classList.add("hide");
-            quizMain.classList.add("hide");
-            endSection.classList.remove("hide");
-
         }
 
     }, 1000);
 };
 
-
+function endPage() {
+    next.classList.add("hide");
+    quizMain.classList.add("hide");
+    endSection.classList.remove("hide");
+    start.classList.remove("hide");
+    start.innerHTML = "Restart";
+    score.innerHTML = "You got " + scoreNum + " questions correct";
+}
 
 
 //calculate score
@@ -128,11 +131,8 @@ function rightOrWrong(answer) {
         checkAnswer.innerHTML = "Wrong";
     }
     else {
-        score.innerHTML = "You got " + scoreNum + " questions correct";
-        next.classList.add("hide");
-        quizMain.classList.add("hide");
-        endSection.classList.remove("hide");
         checkAnswer.classList.add("hide");
+        endPage();
 
     }
 };
