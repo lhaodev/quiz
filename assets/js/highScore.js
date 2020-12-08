@@ -11,13 +11,12 @@ function showHighScore() {
 
     recordAll.forEach(function (score) {
         var scoreList = document.createElement("li");
-        scoreList.textContent = historyRecord.name + " - " + historyRecord.score
+        scoreList.textContent = score.name + " - " + score.score
+
+        var displayHighScores = document.getElementById("highscores");
+        displayHighScores.appendChild(scoreList);
     });
 
-
-
-    var displayHighScores = document.getElementById("highscores");
-    displayHighScores.appendChild(scoreList);
 
     // console.log(recordAll);
     // start.classList.add("hide");
