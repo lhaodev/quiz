@@ -19,6 +19,10 @@ var highestScore = document.getElementById("highscore-score");
 var endSection = document.getElementById("end");
 var submitScore = document.getElementById("submitScore");
 var initials = document.getElementById("initials");
+
+
+
+
 var scoreNum = 0;
 
 console.log(questions)

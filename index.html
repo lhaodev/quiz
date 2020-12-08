@@ -38,9 +38,11 @@
         <div class="row m-2">
             <div class="col text-center">
                 <button class="start-btn myBtn" id="start-btn">Start Game</button>
-                <button class="history-btn myBtn" id="highScore-btn" onclick="showHighScore()">High Scores</button>
+                <button class="highScore-btn myBtn" id="highScore-btn" onclick="showHighScore()">High Scores</button>
             </div>
         </div>
+
+        <!-- my highsocre storage page-->
         <div id="highscore-container" class="hide col text-center">
             <div id="highscoreStorage">
                 <div id="highscore-header">
@@ -48,9 +50,12 @@
                     <div id="highscore-initials">xx</div>
                     <h3>Score</h3>
                     <div id="highscore-score">xx</div>
+                    <button id="clear-btn">Clear Highscores</button>
                 </div>
             </div>
         </div>
+
+
 
         <div class="container-fluid" id="container">
             <div class="row m-2">
@@ -79,11 +84,25 @@
         </div>
     </div>
     <div id="checkAnswer" class="checkAnswer col text-center"></div>
+
+
+
+
+
+
     <div id="end" class="hide col text-center">
         <label for="initials">Initials</label>
         <input type="text" name="initials" id="initials" placeholder="Your Initials" />
         <button id="submitScore">Submit Score</button>
+
     </div>
+
+
+
+
+
+
+
 
 
     <!-- Links to js files -->

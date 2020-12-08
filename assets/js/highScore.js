@@ -2,17 +2,16 @@
 //localstore get past stored scores
 function showHighScore() {
     // get scores from local storage or sets to empty array
-    var recordAll = JSON.parse(localStorage.getItem("historyRecord")) || [];
+    var recordAll = JSON.parse(window.localStorage.getItem("historyRecord")) || [];
 
     // sort highscores in decending order
     recordAll.sort(function (x, y) {
         return y.score - x.score
-    })
+    });
 
     recordAll.forEach(function (score) {
         var scoreList = document.createElement("li");
-        scoreList.textContent = score.highScoreInitials + " - " + score.score
-
+        scoreList.textContent = historyRecord.name + " - " + historyRecord.score
     });
 
     var displayHighScores = document.getElementById("highscore-initials");
@@ -35,6 +34,6 @@ function clearHighScores() {
     window.location.reload();
 };
 
-document.getElementById("clear").onclick = clearHighScores;
+document.getElementById("clear-btn").onclick = clearHighScores;
 
 showHighScore(); 
