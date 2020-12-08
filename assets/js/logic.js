@@ -21,13 +21,9 @@ var submitScore = document.getElementById("submitScore");
 var initials = document.getElementById("initials");
 
 
-
-
 var scoreNum = 0;
 
 console.log(questions)
-
-
 
 console.log(questions.length);
 
@@ -47,8 +43,6 @@ function startQuiz() {
     score.innerHTML = scoreNum;
 
 };
-
-
 
 
 
@@ -75,15 +69,20 @@ function runQuiz() {
 
 
 
-//next button to run next question
-function nextQuestion() {
-    questionIndex++;
-    runQuiz();
-}
-
 next.addEventListener("click", function (event) {
     event.preventDefault();
-    nextQuestion();
+    questionIndex++;
+    if (questionIndex === questions.length) {
+        clearInterval(timeInterval);
+        score.innerHTML = "You got " + scoreNum + " questions correct";
+        next.classList.add("hide");
+        quizMain.classList.add("hide");
+        endSection.classList.remove("hide");
+
+    } else {
+        runQuiz();
+
+    }
 });
 
 var questionTime = 50;
