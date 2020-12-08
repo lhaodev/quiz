@@ -14,8 +14,8 @@ var score = document.getElementById("score");
 var checkAnswer = document.getElementById("checkAnswer");
 var highScoreBtn = document.getElementById("highScore-btn");
 var highscoreContainer = document.getElementById("highscore-container");
-var highScoreInitials = document.getElementById("highscore-initials");
-var highestScore = document.getElementById("highscore-score");
+//var highScoreInitials = document.getElementById("highscore-initials");
+//var highestScore = document.getElementById("highscore-score");
 var endSection = document.getElementById("end");
 var submitScore = document.getElementById("submitScore");
 var initials = document.getElementById("initials");
@@ -26,8 +26,6 @@ var initials = document.getElementById("initials");
 var scoreNum = 0;
 
 console.log(questions)
-
-
 
 
 
@@ -52,6 +50,8 @@ function startQuiz() {
 
 
 
+
+
 //trying to create a restart button when the list of questions is run out
 var questionIndex = 0;
 
@@ -67,10 +67,12 @@ function runQuiz() {
         score.innerHTML = "You got " + scoreNum + " questions correct";
         next.classList.add("hide");
         quizMain.classList.add("hide");
-        //highscoreContainer.classList.remove("hide");
+        highscoreContainer.classList.remove("hide");
     }
 
 };
+
+
 
 //next button to run next question
 function nextQuestion() {
@@ -83,25 +85,27 @@ next.addEventListener("click", function (event) {
     nextQuestion();
 });
 
-
+var questionTime = 50;
 //set timer - total is 50 seconds
 function setTime() {
-    var questionTime = 50;
     var timeInterval = setInterval(function () {
         timer.textContent = questionTime;
         questionTime--;
 
-        if (questionTime === 0) {
+        if (questionTime <= 0) {
             timer.textContent = "Time is up";
             clearInterval(timeInterval);
             score.innerHTML = "You got " + scoreNum + " questions correct";
             next.classList.add("hide");
             quizMain.classList.add("hide");
             endSection.classList.remove("hide");
+            quizEnd();
         }
 
     }, 1000);
 };
+
+
 
 
 //calculate score
@@ -139,6 +143,7 @@ submitScore.addEventListener("click", function (event) {
     }
     else {
         alert("Saved successfully");
+
         var historyRecord =
             JSON.parse(localStorage.getItem("historyRecord")) || [];
 

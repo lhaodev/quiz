@@ -14,7 +14,9 @@ function showHighScore() {
         scoreList.textContent = historyRecord.name + " - " + historyRecord.score
     });
 
-    var displayHighScores = document.getElementById("highscore-initials");
+
+
+    var displayHighScores = document.getElementById("highscores");
     displayHighScores.appendChild(scoreList);
 
     // console.log(recordAll);
