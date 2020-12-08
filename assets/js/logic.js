@@ -72,6 +72,10 @@ function runQuiz() {
 next.addEventListener("click", function (event) {
     event.preventDefault();
     questionIndex++;
+    document.querySelector(".A").disabled = false;
+    document.querySelector(".B").disabled = false;
+    document.querySelector(".C").disabled = false
+    document.querySelector(".D").disabled = false;
     if (questionIndex === questions.length) {
         clearInterval(timeInterval);
         score.innerHTML = "You got " + scoreNum + " questions correct";
@@ -111,6 +115,11 @@ function setTime() {
 //calculate score
 
 function rightOrWrong(answer) {
+    document.querySelector(".A").disabled = true;
+    document.querySelector(".B").disabled = true;
+    document.querySelector(".C").disabled = true;
+    document.querySelector(".D").disabled = true;
+
     if (questions[questionIndex].correct == answer && questionIndex !== questions.length - 1) {
         scoreNum++;
         score.innerHTML = scoreNum;
@@ -154,4 +163,6 @@ submitScore.addEventListener("click", function (event) {
     }
 }
 );
+
+
 
